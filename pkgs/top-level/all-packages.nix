@@ -771,7 +771,7 @@ with pkgs;
   cfdyndns = callPackage ../applications/networking/dyndns/cfdyndns { };
 
   ckbcomp = callPackage ../tools/X11/ckbcomp { };
-  
+
   clac = callPackage ../tools/misc/clac {};
 
   clasp = callPackage ../tools/misc/clasp { };
@@ -1059,6 +1059,8 @@ with pkgs;
   mcelog = callPackage ../os-specific/linux/mcelog {
     utillinux = utillinuxMinimal;
   };
+
+  agensgraph = callPackage ../servers/sql/agensgraph {};
 
   apparix = callPackage ../tools/misc/apparix { };
 
