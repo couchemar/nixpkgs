@@ -1153,6 +1153,8 @@ with pkgs;
 
   fasd = callPackage ../tools/misc/fasd { };
 
+  fasm = callPackage ../development/compilers/fasm { };
+
   fastJson = callPackage ../development/libraries/fastjson { };
 
   fast-cli = nodePackages.fast-cli;
