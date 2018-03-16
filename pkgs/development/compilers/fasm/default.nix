@@ -1,6 +1,6 @@
-{ stdenv, fetchurl }:
+{ multiStdenv, fetchurl }:
 
-stdenv.mkDerivation rec {
+multiStdenv.mkDerivation rec {
   name = "fasm-${version}";
   version = "1.72";
 
@@ -12,5 +12,11 @@ stdenv.mkDerivation rec {
   installPhase = ''
   mkdir -p $out/bin
   cp fasm fasm.x64 $out/bin/
+
+  for s in symbols prepsrc listing
+  do
+      $out/bin/fasm.x64 tools/libc/$s.asm $s.o
+      gcc -m32 -pie $s.o -o $out/bin/$s
+  done
   '';
 }
